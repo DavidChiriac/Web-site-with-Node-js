@@ -35,6 +35,8 @@ app.get('/chestionar', (req, res) => {
 	res.render('chestionar', {intrebari: listaIntrebari});
 });
 
+app.get('/autentificare', (req, res) => res.render('autentificare'));
+
 app.post('/rezultat-chestionar', (req, res) => {
 	console.log(req.body);
 	res.send("formular: " + JSON.stringify(req.body));
