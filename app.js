@@ -37,7 +37,11 @@ app.get('/chestionar', (req, res) => {
 
 app.get('/autentificare', (req, res) => res.render('autentificare'));
 
-app.post('/rezultat-chestionar', (req, res) => {
+app.get('/autentif', (req, res) => res.render('autentificare'));
+
+app.get('/chestio', (req, res) => res.render('rezultat_chestionar'));
+
+app.post('/rezultat_chestionar', (req, res) => {
 	console.log(req.body);
 	res.send("formular: " + JSON.stringify(req.body));
 });
