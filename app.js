@@ -25,12 +25,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // proprietățile obiectului Request - req - https://expressjs.com/en/api.html#req
 // proprietățile obiectului Response - res - https://expressjs.com/en/api.html#res
 app.get('/', (req, res) => {
-	res.render('index', {utilizator: req.cookies.utilizator})	
+	res.render('index', {utilizator: req.cookies.utilizator});
 });
 
 app.get('/index', (req, res) => {
 	res.render('index')
-	console.log(req.cookies.utilizator);	
+	res.render('index', {utilizator: req.cookies.utilizator});	
 });
 // la accesarea din browser adresei http://localhost:6789/chestionar se va apela funcția specificată
 app.get('/chestionar', (req, res) => {
@@ -46,9 +46,10 @@ app.get('/chestionar', (req, res) => {
 	res.render('chestionar', {intrebari: listaIntrebari});
 });
 
-app.get('/autentificare', (req, res) => res.render('autentificare'));
+app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare: req.cookies.mesajEroare}));
 
 app.post('/verificare-autentificare', (req, res) => {
+	res.clearCookie('utilizator', 'mesajEroare');
 	console.log(req.body)
 	if(req.body.username=="admin" && req.body.password=="admin"){
 		res.cookie('utilizator', req.body.username);
