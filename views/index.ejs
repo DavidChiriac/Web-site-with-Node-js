@@ -1,8 +1,9 @@
 <img src="https://i.pinimg.com/originals/4b/09/e9/4b09e914fdf767501ecee724cb6f3ba1.gif">
 
-<% if(utilizator==""){ %>
+<% if(!utilizator){ %>
     <form action="/autentificare" method="GET"> <button type="submit">Autentificare</button> </form>
 <% } else{ %>
     <p> Bine ai venit, <%=utilizator%> !</p>
     <form action="/chestionar" method="GET"> <button type="submit">Acceseaza chestionar</button> </form>
+    <form action="/log-out" method="POST"> <button type="submit">Log out</button></form>
 <% } %>
