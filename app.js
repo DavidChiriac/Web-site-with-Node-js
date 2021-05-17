@@ -61,6 +61,12 @@ app.post('/verificare-autentificare', (req, res) => {
 	}
 }); 
 
+app.post('/log-out', (req, res) =>{
+	res.clearCookie('utilizator')
+	res.clearCookie('mesajEroare')
+	res.redirect('/index')
+});
+
 app.get('/rezultat_chestionar', (req, res) => res.render('rezultat_chestionar'));
 
 app.post('/rezultat_chestionar', (req, res) => {
