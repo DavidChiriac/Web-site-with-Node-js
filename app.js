@@ -46,12 +46,10 @@ app.get('/chestionar', (req, res) => {
 		},
 		{
 			intrebare: 'Întrebarea 3',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
+			corect: ''
 		},
 		{
 			intrebare: 'Întrebarea 4',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
 			corect: 0
 		},
 		{
@@ -71,17 +69,14 @@ app.get('/chestionar', (req, res) => {
 		},
 		{
 			intrebare: 'Întrebarea 8',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
 			corect: 0
 		},
 		{
 			intrebare: 'Întrebarea 9',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
 			corect: 0
 		},
 		{
 			intrebare: 'Întrebarea 10',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
 			corect: 0
 		}
 	];
