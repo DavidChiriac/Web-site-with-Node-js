@@ -58,6 +58,31 @@ app.get('/chestionar', (req, res) => {
 			intrebare: 'Întrebarea 5',
 			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
 			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 6',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 7',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 8',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 9',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 10',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
 		}
 	];
 	// în fișierul views/chestionar.ejs este accesibilă variabila 'intrebari' care conține vectorul de întrebări
