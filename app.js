@@ -88,10 +88,10 @@ app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare
 
 app.post('/verificare-autentificare', (req, res) => {
 	res.clearCookie('utilizator');
-	res.clearCookie('mesajEroare');
 	console.log(req.body);
 	if(req.body.username=="admin" && req.body.password=="admin"){
 		res.cookie('utilizator', req.body.username);
+		res.clearCookie('mesajEroare');
 		res.redirect('/index');
 	}
 	else{
@@ -102,15 +102,14 @@ app.post('/verificare-autentificare', (req, res) => {
 
 app.post('/log-out', (req, res) =>{
 	res.clearCookie('utilizator')
-	res.clearCookie('mesajEroare')
 	res.redirect('/index')
 });
 
-app.get('/rezultat_chestionar', (req, res) => res.render('rezultat_chestionar'));
+app.get('/rezultat_chestionar', (req, res) => res.render('rezultat_chestionar', {intrebari:listaIntrebari}));
 
 app.post('/rezultat_chestionar', (req, res) => {
-	console.log(req.body);
-	res.send("formular: " + JSON.stringify(req.body));
+	console.log(req.body)
+	res.redirect('/rezultat_chestionar')
 });
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
