@@ -1,38 +1,37 @@
+<form action="/index" method="GET">
+
 <div>
-    <h3>Intrebare 1</h3>
-    <h4 id="int1"></h2>
+    <h3><%=intrebari[0].intrebare%></h3>
     <input type="radio" id="int1v1">
-    <label>Raspuns 1</label><br>
+    <label><%=intrebari[0].variante[0]%></label><br>
     <input type="radio" id="int1v2">
-    <label>Raspuns 2</label><br>
+    <label><%=intrebari[0].variante[1]%></label><br>
     <input type="radio" id="int1v3">
-    <label>Raspuns 3</label><br>
+    <label><%=intrebari[0].variante[2]%></label><br>
     <input type="radio" id="int1v4">
-    <label>Raspuns 4</label>
+    <label><%=intrebari[0].variante[3]%></label>
 </div>
 
 <div>
-    <h3>Intrebare 2</h3>
-    <h4 id="int2"></h4>
+    <h3><%=intrebari[1].intrebare%></h3>
     <input type="radio" id="int2v1">
-    <label>Raspuns 1</label><br>
+    <label><%=intrebari[1].variante[0]%></label><br>
     <input type="radio" id="int2v2">
-    <label>Raspuns 2</label><br>
+    <label><%=intrebari[1].variante[0]%></label><br>
     <input type="radio" id="int2v3">
-    <label>Raspuns 3</label><br>
+    <label><%=intrebari[1].variante[0]%></label><br>
     <input type="radio" id="int2v4">
-    <label>Raspuns 4</label>
+    <label><%=intrebari[1].variante[0]%></label>
 </div>
 
 <div>
-    <h3>Intrebare 3</h3>
-    <h4  id="int3"></h4>
+    <h3><%=intrebari[2].intrebare%></h3>
+    <h4></h4>
     <input type="text" id="rasInt3"><br>
 </div>
 
 <div>
-    <h3>Intrebare 4</h3>
-    <h4  id="int4"></h4>
+    <h3><%=intrebari[3].intrebare%></h3>
     <input type="radio" id="Int4A">
     <label>Adevarat</label><br>
     <input type="radio" id="Int4F">
@@ -40,9 +39,64 @@
 </div>
 
 <div>
-    <h3>Intrebare 5</h3>
-    <h4 id="int5"></h4>
-    <input type="time">
+    <h3><%=intrebari[4].intrebare%></h3>
+    <input type="checkbox" id="int5v1">
+    <label><%=intrebari[4].variante[0]%></label><br>
+    <input type="checkbox" id="int5v2">
+    <label><%=intrebari[4].variante[0]%></label><br>
+    <input type="checkbox" id="int5v3">
+    <label><%=intrebari[4].variante[0]%></label><br>
+    <input type="checkbox" id="int5v4">
+    <label><%=intrebari[4].variante[0]%></label>
 </div>
 
-<form action="/index" method="GET"> <button type="submit">Acasa</button></form>
+<div>
+    <h3><%=intrebari[5].intrebare%></h3>
+    <input type="checkbox" id="int6v1">
+    <label><%=intrebari[5].variante[0]%></label><br>
+    <input type="checkbox" id="int6v2">
+    <label><%=intrebari[5].variante[0]%></label><br>
+    <input type="checkbox" id="int6v3">
+    <label><%=intrebari[5].variante[0]%></label><br>
+    <input type="checkbox" id="int6v4">
+    <label><%=intrebari[5].variante[0]%></label>
+</div>
+
+<div>
+    <h3><%=intrebari[6].intrebare%></h3>
+    <input type="checkbox" id="int7v1">
+    <label><%=intrebari[6].variante[0]%></label><br>
+    <input type="checkbox" id="int7v2">
+    <label><%=intrebari[6].variante[0]%></label><br>
+    <input type="checkbox" id="int7v3">
+    <label><%=intrebari[6].variante[0]%></label><br>
+    <input type="checkbox" id="int7v4">
+    <label><%=intrebari[6].variante[0]%></label>
+</div>
+
+<div>
+    <h3><%=intrebari[7].intrebare%></h3>
+    <input type="radio" id="Int8A">
+    <label>Adevarat</label><br>
+    <input type="radio" id="Int8F">
+    <label>Fals</label>
+</div>
+
+<div>
+    <h3><%=intrebari[8].intrebare%></h3>
+    <input type="radio" id="Int9A">
+    <label>Adevarat</label><br>
+    <input type="radio" id="Int9F">
+    <label>Fals</label>
+</div>
+
+<div>
+    <h3><%=intrebari[9].intrebare%></h3>
+    <input type="radio" id="Int10A">
+    <label>Adevarat</label><br>
+    <input type="radio" id="Int10F">
+    <label>Fals</label>
+</div>
+
+ <button type="submit">Acasa</button>
+</form>
