@@ -49,7 +49,7 @@ app.get('/chestionar', (req, res) => {
 app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare: req.cookies.mesajEroare}));
 
 app.post('/verificare-autentificare', (req, res) => {
-	res.clearCookie('utilizator', 'mesajEroare');
+	res.cookie('mesajEroare', "")
 	console.log(req.body)
 	if(req.body.username=="admin" && req.body.password=="admin"){
 		res.cookie('utilizator', req.body.username);
