@@ -1,8 +1,12 @@
+const cookieParser=require('cookie-parser');
+
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser')
 
 const app = express();
+
+app.use(cookieParser());
 
 const port = 6789;
 
