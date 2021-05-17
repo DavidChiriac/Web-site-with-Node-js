@@ -37,6 +37,8 @@ app.get('/chestionar', (req, res) => {
 
 app.get('/autentificare', (req, res) => res.render('autentificare'));
 
+app.post('/verificare-autentificare', (req, res) => console.log(req.body)); 
+
 app.get('/rezultat_chestionar', (req, res) => res.render('rezultat_chestionar'));
 
 app.post('/rezultat_chestionar', (req, res) => {
