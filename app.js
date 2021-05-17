@@ -29,7 +29,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/index', (req, res) => {
-	res.render('index')
 	res.render('index', {utilizator: req.cookies.utilizator});	
 });
 // la accesarea din browser adresei http://localhost:6789/chestionar se va apela funcția specificată
@@ -49,15 +48,13 @@ app.get('/chestionar', (req, res) => {
 app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare: req.cookies.mesajEroare}));
 
 app.post('/verificare-autentificare', (req, res) => {
-	res.cookie('mesajEroare', "");
-	res.cookie('utilizator', "");
 	console.log(req.body);
 	if(req.body.username=="admin" && req.body.password=="admin"){
-		res.cookie('utilizator', req.body.username);
+		res.cookie('utilizator', '');
 		res.redirect('/index');
 	}
 	else{
-		res.cookie('mesajEroare', "Utilizator sau parola incorecte");
+		res.cookie('mesajEroare', 'Utilizator sau parola incorecte');
 		res.redirect('/autentificare');
 	}
 }); 
