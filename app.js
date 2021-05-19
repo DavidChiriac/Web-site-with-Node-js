@@ -175,7 +175,7 @@ con.connect(function(err) {
   	console.log("Connected!");
 });
 
-app.post('/creare-bd', (req, res) =>{
+app.get('/creare-bd', (req, res) =>{
 	let mysql="CREATE DATABASE cumparaturi";
 	con.query(mysql,(err) =>{
 		if(err){
