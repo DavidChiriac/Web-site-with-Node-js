@@ -167,7 +167,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
-  	password: ""
+  	password: "",
 });
 
 con.connect(function(err) {
@@ -183,7 +183,7 @@ app.get('/creare-bd', (req, res) =>{
 		}
 		res.send("Database created");
 	});
-	mysql="CREATE TABLE produse";
+	mysql="CREATE TABLE produse ( nume VARCHAR(30), pret Int)";
 	con.query(mysql,(err)=>{
 		if(err){
 			throw err;
