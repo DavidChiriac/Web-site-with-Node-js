@@ -105,11 +105,65 @@ app.post('/log-out', (req, res) =>{
 	res.redirect('/index')
 });
 
-app.get('/rezultat_chestionar', (req, res) => res.render('rezultat_chestionar', {intrebari:listaIntrebari}));
+app.get('/rezultat_chestionar', (req, res) => {
+	const listaIntrebari = [
+		{
+			intrebare: 'Întrebarea 1',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 2',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 3',
+			corect: ''
+		},
+		{
+			intrebare: 'Întrebarea 4',
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 5',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 6',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 7',
+			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 8',
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 9',
+			corect: 0
+		},
+		{
+			intrebare: 'Întrebarea 10',
+			corect: 0
+		}
+	];
+	res.render('rezultat_chestionar', {intrebari:listaIntrebari})
+	
+});
 
 app.post('/rezultat_chestionar', (req, res) => {
 	console.log(req.body)
 	res.redirect('/rezultat_chestionar')
+});
+
+app.post('/creare-bd', (req, res) =>{
+
 });
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
