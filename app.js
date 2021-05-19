@@ -163,7 +163,11 @@ app.post('/rezultat_chestionar', (req, res) => {
 });
 
 app.post('/creare-bd', (req, res) =>{
+	res.redirect('/index');
+});
 
+app.post('/inserare-bd', (req, res) =>{
+	res.redirect('/index');
 });
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
