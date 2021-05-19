@@ -162,16 +162,27 @@ app.post('/rezultat_chestionar', (req, res) => {
 	res.redirect('/rezultat_chestionar')
 });
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+  	password: ""
+});
+
+con.connect(function(err) {
+  	if (err) throw err;
+  	console.log("Connected!");
+});
+
 app.post('/creare-bd', (req, res) =>{
-	const mysql = require('mysql');
-	const connection = mysql.createConnection({
-  		host: 'localhost',
-  		user: 'admin',
-  		password: 'admin',
-  		database: 'cumparaturi'	
+	let mysql="CREATE DATABASE cumparaturi";
+	con.query(mysql,(err) =>{
+		if(err){
+			throw err;
+		}
+		res.send("Database created");
 	});
-	if(connection)
-  		console.log('Connected!');
 	res.redirect('/index');
 });
 
