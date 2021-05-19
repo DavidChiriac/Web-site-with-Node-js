@@ -183,10 +183,18 @@ app.get('/creare-bd', (req, res) =>{
 		}
 		res.send("Database created");
 	});
+	mysql="CREATE TABLE produse";
+	con.query(mysql,(err)=>{
+		if(err){
+			throw err;
+		}
+		res.send("Table created");
+	});
 	res.redirect('/index');
 });
 
 app.post('/inserare-bd', (req, res) =>{
+
 	res.redirect('/index');
 });
 
