@@ -85,10 +85,10 @@ app.post('/rezultat_chestionar', (req, res) => {
 	fs.readFile('intrebari.json', 'utf8', function (err, data) {
  	 	if (err) throw err;
   	  	obj = JSON.parse(data);
-			if(req.body.int1v1=="on"){
+			if(req.body.int1v1=="on" && req.body.int1v2!="on"&& req.body.int1v3!="on"&& req.body.int1v4!="on"){
 				punctaj++;
 			}
-			if(req.body.int2v2=="on"){
+			if(req.body.int2v2=="on"&& req.body.int2v1!="on"&& req.body.int2v3!="on"&& req.body.int2v4!="on"){
 				punctaj++;
 			}
 				var answer = req.body.rasint3;
@@ -104,25 +104,25 @@ app.post('/rezultat_chestionar', (req, res) => {
 			if(goodAnswer==obj[2].corect){
 				punctaj++;
 			}
-			if(req.body.int4A=="on"){
+			if(req.body.int4A=="on"&& req.body.int4F!="on"){
 				punctaj++;
 			}
-			if(req.body.int5v4=="on"){
+			if(req.body.int5v4=="on"&& req.body.int5v1!="on"&& req.body.int5v2!="on"&& req.body.int5v3!="on"){
 				punctaj++;
 			}
-			if(req.body.int6v1=="on"){
+			if(req.body.int6v1=="on"&& req.body.int6v2!="on"&& req.body.int6v3!="on"&& req.body.int6v4!="on"){
 				punctaj++;
 			}
-			if(req.body.int7v3=="on"){
+			if(req.body.int7v3=="on"&& req.body.int7v1!="on"&& req.body.int7v2!="on"&& req.body.int7v4!="on"){
 				punctaj++;
 			}
-			if(req.body.int8A=="on"){
+			if(req.body.int8A=="on"&& req.body.int8F!="on"){
 				punctaj++;
 			}
-			if(req.body.int9A=="on"){
+			if(req.body.int9A=="on"&& req.body.int9F!="on"){
 				punctaj++;
 			}
-			if(req.body.int10F=="on"){
+			if(req.body.int10F=="on"&& req.body.int10A!="on"){
 				punctaj++;
 			}
 			res.render('rezultat_chestionar', {intrebari:obj, punctaj:punctaj});
