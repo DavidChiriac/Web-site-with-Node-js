@@ -71,15 +71,6 @@ app.post('/verificare-autentificare', (req, res) => {
 			res.redirect('/autentificare');
 		}
 	});
-	/*if(req.body.username=="admin" && req.body.password=="admin"){
-		res.cookie('utilizator', req.body.username);
-		res.clearCookie('mesajEroare');
-		res.redirect('/index');
-	}
-	else{
-		res.cookie('mesajEroare', 'Utilizator sau parola incorecte');
-		res.redirect('/autentificare');
-	}*/
 }); 
 
 app.post('/log-out', (req, res) =>{
@@ -99,6 +90,28 @@ app.get('/rezultat_chestionar', (req, res) => {
 
 app.post('/rezultat_chestionar', (req, res) => {
 	console.log(req.body)
+	var punctaj=0
+	if(req.body.int1v1=="on"){
+		punctaj++;
+	}
+	if(req.body.int2v2=="on"){
+		punctaj++;
+	}
+		var answer = req.body.rasint3;
+		var goodAnswer="";
+
+		for(var i=0;i<answer.length;i++){
+			if(answer[i]>='a' && answer[i]<='z'){
+				goodAnswer = goodAnswer+answer[i];
+			}
+			else if(answer[i]>='A' && answer[i]<='Z'){
+				goodAnswer = goodAnswer +answer[i].toLowerCase();
+			}
+		}
+	if(goodAnswer="aftershave"){
+		punctaj++;
+	}
+
 	res.redirect('/rezultat_chestionar')
 });
 
