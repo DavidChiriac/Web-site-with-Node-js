@@ -56,9 +56,24 @@ app.post('/verificare-autentificare', (req, res) => {
 	fs.readFile('utilizatori.json', 'utf8', function (err, data) {
  	 	if (err) throw err;
   	  	obj = JSON.parse(data);
-			for( i=0;i<)
+		var nrUtilizatori = Object.keys(obj).length;
+		console.log(nrUtilizatori);
+		var ok=0;
+		for(var i=0;i<nrUtilizatori - 1;i++){
+			if(obj[i].username==req.body.username && obj[i].password == req.body.password){
+				ok=1;
+				res.cookie('utilizator', req.body.username);
+				res.clearCookie('mesajEroare');
+				res.redirect('/index');
+				break;
+			}
+		}
+		if(!ok){
+			res.cookie('mesajEroare', 'Utilizator sau parola incorecte');
+			res.redirect('/autentificare');
+		}
 	});
-	if(req.body.username=="admin" && req.body.password=="admin"){
+	/*if(req.body.username=="admin" && req.body.password=="admin"){
 		res.cookie('utilizator', req.body.username);
 		res.clearCookie('mesajEroare');
 		res.redirect('/index');
@@ -66,7 +81,7 @@ app.post('/verificare-autentificare', (req, res) => {
 	else{
 		res.cookie('mesajEroare', 'Utilizator sau parola incorecte');
 		res.redirect('/autentificare');
-	}
+	}*/
 }); 
 
 app.post('/log-out', (req, res) =>{
