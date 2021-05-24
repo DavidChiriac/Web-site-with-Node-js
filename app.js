@@ -166,16 +166,17 @@ app.get('/creare-bd', (req, res) =>{
 	
 	var mysql = require('mysql');
 
-	var con = mysql.createConnection({
+	con = mysql.createConnection({
 		host: "localhost",
 		user: "root",
-		password: "",
+		password: ""
 	});
 
 	con.connect(function(err) {
 		if (err) throw err;
 		console.log("Connected!");
 	});
+
 	try{
 		con.query("CREATE DATABASE cumparaturi", function (err, result) {});
 	  	res.redirect('/index');
@@ -183,11 +184,19 @@ app.get('/creare-bd', (req, res) =>{
 		res.send({ code:400, failed: "error occurred"});
 	  }
 	
-	let Produse = `create table produse(
-		nume varchar(255)not null
-	)`;
 	try{
+		con = mysql.createConnection({
+			host: "localhost",
+			user: "root",
+			password: "",
+			database: "cumparaturi"
+		});
+		let Produse = `create table produse(
+			id int primary key auto_increment,
+			nume varchar(255)not null
+		)`;
 		con.query(Produse, function (err, result, fields) {});
+		console.log("Tabel creat!");
 	} catch (error){
 		res.send({ code:400, failed: "error occurred"});
 	}
