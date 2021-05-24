@@ -201,11 +201,11 @@ app.post('/adaugare-produs',(req,res)=>{
 	try{
 		var produsNou="INSERT INTO produse (id, nume) VALUES ('"+req.body.idProdus+"', '"+req.body.numeProdus+"')"
  		con.query(produsNou, function (err, result) {});
-		res.redirect('/index');
+		res.redirect('/admin');
 	} catch{
 	}
 });
 
-app.get('/admin', (req,res)=>res.redirect('/admin'));
+app.get('/admin', (req,res)=>res.render('admin', {utilizator:req.cookies.utilizator}));
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
