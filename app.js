@@ -210,17 +210,11 @@ app.post('/inserare-bd', (req, res) =>{
 		database: "cumparaturi"
 	});
 	try{
-		var listaProduse = "INSERT INTO produse (id, name) VALUES ?";
-		var values = [
-			[1, 'after-shave'],
-			[2, 'pudra'],
-			[3, 'spuma hidratanta'],
-			[4, 'sampon']
-		];
-		conn.query(listaProduse, [values], function(err) {
-			conn.end();
-		});
-    	console.log("1 record inserted");
+ 		con.query("INSERT INTO produse (id, nume) VALUES (1, 'after-shave')", function (err, result) {});
+		con.query("INSERT INTO produse (id, nume) VALUES (2, 'crema hidratanta')", function (err, result) {});
+		con.query("INSERT INTO produse (id, nume) VALUES (3, 'sampon')", function (err, result) {});
+		con.query("INSERT INTO produse (id, nume) VALUES (4, 'gel de duș')", function (err, result) {});
+
 		res.redirect('/index');
 	} catch{
 	}
