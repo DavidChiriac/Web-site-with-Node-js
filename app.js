@@ -101,13 +101,15 @@ app.post('/rezultat_chestionar', (req, res) => {
 		var goodAnswer="";
 
 		for(var i=0;i<answer.length;i++){
-			if(answer[i]>='a' && answer[i]<='z'){
+			if((answer[i]>='a' && answer[i]<='z') || (answer[i]>='A' && answer[i]<='Z')){
 				goodAnswer = goodAnswer+answer[i];
 			}
-			else if(answer[i]>='A' && answer[i]<='Z'){
-				goodAnswer = goodAnswer +answer[i].toLowerCase();
-			}
+			//else if(answer[i]>='A' && answer[i]<='Z'){
+		//		goodAnswer = goodAnswer +answer[i].toLowerCase();
+		//	}
 		}
+		goodAnswer=goodAnswer.toLowerCase();
+		console.log(goodAnswer);
 	if(goodAnswer="aftershave"){
 		punctaj++;
 	}
