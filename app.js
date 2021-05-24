@@ -189,4 +189,21 @@ app.post('/inserare-bd', (req, res) =>{
 	}
 });
 
+app.post('/adaugare-produs',(req,res)=>{
+	var mysql = require('mysql');
+
+	var con = mysql.createConnection({
+		host: "localhost",
+		user: "root",
+		password: "",
+		database: "cumparaturi"
+	});
+	try{
+		var produsNou="INSERT INTO produse (id, nume) VALUES ('"+req.body.idProdus+"', '"+req.body.numeProdus+"')"
+ 		con.query(produsNou, function (err, result) {});
+		res.redirect('/index');
+	} catch{
+	}
+});
+
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
