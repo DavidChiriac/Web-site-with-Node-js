@@ -32,8 +32,15 @@ app.get('/index', (req, res) => {
 	res.render('index', {utilizator: req.cookies.utilizator});	
 	
 });
+
 // la accesarea din browser adresei http://localhost:6789/chestionar se va apela funcția specificată
 app.get('/chestionar', (req, res) => {
+	var fs = require('fs');
+	var obj;
+	fs.readFile('intrebari.json', 'utf8', function (err, data) {
+ 	 if (err) throw err;
+  	obj = JSON.parse(data);
+	});
 	const listaIntrebari = [
 		{
 			intrebare: 'Întrebarea 1',
@@ -82,7 +89,7 @@ app.get('/chestionar', (req, res) => {
 		}
 	];
 	// în fișierul views/chestionar.ejs este accesibilă variabila 'intrebari' care conține vectorul de întrebări
-	res.render('chestionar', {intrebari: listaIntrebari});
+	res.render('chestionar', {intrebari: obj});
 });
 
 app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare: req.cookies.mesajEroare}));
@@ -107,6 +114,12 @@ app.post('/log-out', (req, res) =>{
 });
 
 app.get('/rezultat_chestionar', (req, res) => {
+	var fs = require('fs');
+	var obj;
+	fs.readFile('intrebari.json', 'utf8', function (err, data) {
+		if (err) throw err;
+		obj = JSON.parse(data);
+	});
 	const listaIntrebari = [
 		{
 			intrebare: 'Întrebarea 1',
@@ -154,7 +167,7 @@ app.get('/rezultat_chestionar', (req, res) => {
 			corect: 0
 		}
 	];
-	res.render('rezultat_chestionar', {intrebari:listaIntrebari})
+	res.render('rezultat_chestionar', {intrebari:obj})
 	
 });
 
