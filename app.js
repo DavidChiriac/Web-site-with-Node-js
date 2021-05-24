@@ -20,7 +20,6 @@ app.use(express.static('public'))
 app.use(bodyParser.json());
 // utilizarea unui algoritm de deep parsing care suportă obiecte în obiecte
 app.use(bodyParser.urlencoded({ extended: true }));
-
 // la accesarea din browser adresei http://localhost:6789/ se va returna textul 'Hello World'
 // proprietățile obiectului Request - req - https://expressjs.com/en/api.html#req
 // proprietățile obiectului Response - res - https://expressjs.com/en/api.html#res
@@ -58,7 +57,7 @@ app.post('/verificare-autentificare', (req, res) => {
   	  	obj = JSON.parse(data);
 		var nrUtilizatori = Object.keys(obj).length;
 		var ok=0;
-		for(var i=0;i<nrUtilizatori - 1;i++){
+		for(var i=0;i<nrUtilizatori;i++){
 			if(obj[i].username==req.body.username && obj[i].password == req.body.password){
 				ok=1;
 				res.cookie('utilizator', req.body.username);
