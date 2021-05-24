@@ -89,30 +89,48 @@ app.get('/rezultat_chestionar', (req, res) => {
 });
 
 app.post('/rezultat_chestionar', (req, res) => {
-	console.log(req.body)
-	var punctaj=0
-	if(req.body.int1v1=="on"){
-		punctaj++;
-	}
-	if(req.body.int2v2=="on"){
-		punctaj++;
-	}
-		var answer = req.body.rasint3;
-		var goodAnswer="";
+	var fs = require('fs');
+	var obj;
+	fs.readFile('intrebari.json', 'utf8', function (err, data) {
+ 	 	if (err) throw err;
+  	  	obj = JSON.parse(data);
 
-		for(var i=0;i<answer.length;i++){
-			if((answer[i]>='a' && answer[i]<='z') || (answer[i]>='A' && answer[i]<='Z')){
-				goodAnswer = goodAnswer+answer[i];
-			}
-			//else if(answer[i]>='A' && answer[i]<='Z'){
-		//		goodAnswer = goodAnswer +answer[i].toLowerCase();
-		//	}
+		console.log(req.body);
+	
+		var punctaj=0;
+		if(req.body.int1v1=="on"){
+			punctaj++;
 		}
-		goodAnswer=goodAnswer.toLowerCase();
-		console.log(goodAnswer);
-	if(goodAnswer="aftershave"){
-		punctaj++;
-	}
+		if(req.body.int2v2=="on"){
+			punctaj++;
+		}
+			var answer = req.body.rasint3;
+			var goodAnswer="";
+
+			for(var i=0;i<answer.length;i++){
+				if((answer[i]>='a' && answer[i]<='z') || (answer[i]>='A' && answer[i]<='Z')){
+					goodAnswer = goodAnswer+answer[i];
+				}
+			}
+			goodAnswer=goodAnswer.toLowerCase();
+
+		if(goodAnswer==obj[2].corect){
+			punctaj++;
+		}
+		if(req.body.int4A=="on"){
+			punctaj++;
+		}
+		if(req.body.int5v4=="on"){
+			punctaj++;
+		}
+		if(req.body.int6v1=="on"){
+			punctaj++;
+		}
+		if(req.body.int7v3=="on"){
+			punctaj++;
+		}
+		});
+	
 
 	res.redirect('/rezultat_chestionar')
 });
