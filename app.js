@@ -78,16 +78,6 @@ app.post('/log-out', (req, res) =>{
 	res.redirect('/index')
 });
 
-app.get('/rezultat_chestionar', (req, res) => {
-	var fs = require('fs');
-	var obj;
-	fs.readFile('intrebari.json', 'utf8', function (err, data) {
-		if (err) throw err;
-		obj = JSON.parse(data);
-		res.render('rezultat_chestionar', {intrebari:obj, punctaj:req.cookies.punctaj})
-		});
-});
-
 app.post('/rezultat_chestionar', (req, res) => {
 	var fs = require('fs');
 	var obj;
@@ -135,9 +125,8 @@ app.post('/rezultat_chestionar', (req, res) => {
 			if(req.body.int10F=="on"){
 				punctaj++;
 			}
-			res.cookie('punctaj', punctaj);
+			res.render('rezultat_chestionar', {intrebari:obj, punctaj:punctaj});
 	});
-		res.redirect('/rezultat_chestionar');
 });
 
 app.get('/creare-bd', (req, res) =>{
