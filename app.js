@@ -57,7 +57,6 @@ app.post('/verificare-autentificare', (req, res) => {
  	 	if (err) throw err;
   	  	obj = JSON.parse(data);
 		var nrUtilizatori = Object.keys(obj).length;
-		console.log(nrUtilizatori);
 		var ok=0;
 		for(var i=0;i<nrUtilizatori - 1;i++){
 			if(obj[i].username==req.body.username && obj[i].password == req.body.password){
