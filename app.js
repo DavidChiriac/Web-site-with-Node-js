@@ -38,58 +38,12 @@ app.get('/chestionar', (req, res) => {
 	var fs = require('fs');
 	var obj;
 	fs.readFile('intrebari.json', 'utf8', function (err, data) {
- 	 if (err) throw err;
-  	obj = JSON.parse(data);
+ 	 	if (err) throw err;
+  	  	obj = JSON.parse(data);
+	  	res.render('chestionar', {intrebari: obj});
 	});
-	const listaIntrebari = [
-		{
-			intrebare: 'Întrebarea 1',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 2',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 3',
-			corect: ''
-		},
-		{
-			intrebare: 'Întrebarea 4',
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 5',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 6',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 7',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 8',
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 9',
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 10',
-			corect: 0
-		}
-	];
 	// în fișierul views/chestionar.ejs este accesibilă variabila 'intrebari' care conține vectorul de întrebări
-	res.render('chestionar', {intrebari: obj});
+	
 });
 
 app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare: req.cookies.mesajEroare}));
@@ -97,6 +51,13 @@ app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare
 app.post('/verificare-autentificare', (req, res) => {
 	res.clearCookie('utilizator');
 	console.log(req.body);
+	var fs = require('fs');
+	var obj;
+	fs.readFile('utilizatori.json', 'utf8', function (err, data) {
+ 	 	if (err) throw err;
+  	  	obj = JSON.parse(data);
+			for( i=0;i<)
+	});
 	if(req.body.username=="admin" && req.body.password=="admin"){
 		res.cookie('utilizator', req.body.username);
 		res.clearCookie('mesajEroare');
@@ -119,56 +80,8 @@ app.get('/rezultat_chestionar', (req, res) => {
 	fs.readFile('intrebari.json', 'utf8', function (err, data) {
 		if (err) throw err;
 		obj = JSON.parse(data);
+		res.render('rezultat_chestionar', {intrebari:obj})
 	});
-	const listaIntrebari = [
-		{
-			intrebare: 'Întrebarea 1',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 2',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 3',
-			corect: ''
-		},
-		{
-			intrebare: 'Întrebarea 4',
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 5',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 6',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 7',
-			variante: ['varianta 1', 'varianta 2', 'varianta 3', 'varianta 4'],
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 8',
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 9',
-			corect: 0
-		},
-		{
-			intrebare: 'Întrebarea 10',
-			corect: 0
-		}
-	];
-	res.render('rezultat_chestionar', {intrebari:obj})
-	
 });
 
 app.post('/rezultat_chestionar', (req, res) => {
