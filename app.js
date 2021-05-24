@@ -206,4 +206,6 @@ app.post('/adaugare-produs',(req,res)=>{
 	}
 });
 
+app.get('/admin', (req,res)=>res.redirect('/admin'));
+
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
