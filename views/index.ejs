@@ -10,5 +10,11 @@
 <form action="/creare-bd" method="GET"><button type="submit">Creare BD</button></form>
 <form action="/inserare-bd" method="POST"><button type="submit">Incarcare BD</button></form>
 <% if(utilizator=="admin"){ %>
-    <form action="/adaugare-produs" method="POST"><button type="submit">Adauga produs</button></form>
+    <form action="/adaugare-produs" method="POST">
+        <label>Id produs</label>
+        <input type="number" name="idProdus"><br>
+        <label>Nume produs</label>
+        <input type="text" name="numeProdus"><br>
+        <button type="submit">Adauga produs</button>
+    </form>
 <% } %>
