@@ -181,7 +181,6 @@ app.get('/creare-bd', (req, res) =>{
 		con.query("CREATE DATABASE cumparaturi", function (err, result) {});
 	  	res.redirect('/index');
 	} catch (error) {
-		res.send({ code:400, failed: "error occurred"});
 	  }
 	
 	try{
@@ -192,19 +191,39 @@ app.get('/creare-bd', (req, res) =>{
 			database: "cumparaturi"
 		});
 		let Produse = `create table produse(
-			id int primary key auto_increment,
+			id int primary key,
 			nume varchar(255)not null
 		)`;
 		con.query(Produse, function (err, result, fields) {});
 		console.log("Tabel creat!");
 	} catch (error){
-		res.send({ code:400, failed: "error occurred"});
 	}
 });
 
 app.post('/inserare-bd', (req, res) =>{
+	var mysql = require('mysql');
 
-	res.redirect('/index');
+	var con = mysql.createConnection({
+		host: "localhost",
+		user: "root",
+		password: "",
+		database: "cumparaturi"
+	});
+	try{
+		var listaProduse = "INSERT INTO produse (id, name) VALUES ?";
+		var values = [
+			[1, 'after-shave'],
+			[2, 'pudra'],
+			[3, 'spuma hidratanta'],
+			[4, 'sampon']
+		];
+		conn.query(listaProduse, [values], function(err) {
+			conn.end();
+		});
+    	console.log("1 record inserted");
+		res.redirect('/index');
+	} catch{
+	}
 });
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
