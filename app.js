@@ -45,7 +45,9 @@ app.get('/chestionar', (req, res) => {
 	
 });
 
-app.get('/autentificare', (req, res) => res.render('autentificare', {mesajEroare: req.cookies.mesajEroare}));
+app.get('/autentificare', (req, res) => {
+	res.render('autentificare', {mesajEroare: req.cookies.mesajEroare})
+});
 
 app.post('/verificare-autentificare', (req, res) => {
 	res.clearCookie('utilizator');
