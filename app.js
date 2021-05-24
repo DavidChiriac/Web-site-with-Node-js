@@ -129,6 +129,15 @@ app.post('/rezultat_chestionar', (req, res) => {
 		if(req.body.int7v3=="on"){
 			punctaj++;
 		}
+		if(req.body.int8A=="on"){
+			punctaj++;
+		}
+		if(req.body.int9A=="on"){
+			punctaj++;
+		}
+		if(req.body.int10F=="on"){
+			punctaj++;
+		}
 		});
 	
 
