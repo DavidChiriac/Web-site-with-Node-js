@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 
 app.get('/index', (req, res) => {
 	res.render('index', {utilizator: req.cookies.utilizator});	
+	
 });
 // la accesarea din browser adresei http://localhost:6789/chestionar se va apela funcția specificată
 app.get('/chestionar', (req, res) => {
