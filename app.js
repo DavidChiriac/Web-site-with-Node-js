@@ -84,64 +84,60 @@ app.get('/rezultat_chestionar', (req, res) => {
 	fs.readFile('intrebari.json', 'utf8', function (err, data) {
 		if (err) throw err;
 		obj = JSON.parse(data);
-		res.render('rezultat_chestionar', {intrebari:obj})
-	});
+		res.render('rezultat_chestionar', {intrebari:obj, punctaj:req.cookies.punctaj})
+		});
 });
 
 app.post('/rezultat_chestionar', (req, res) => {
 	var fs = require('fs');
 	var obj;
+	var punctaj=0;
 	fs.readFile('intrebari.json', 'utf8', function (err, data) {
  	 	if (err) throw err;
   	  	obj = JSON.parse(data);
-
-		console.log(req.body);
-	
-		var punctaj=0;
-		if(req.body.int1v1=="on"){
-			punctaj++;
-		}
-		if(req.body.int2v2=="on"){
-			punctaj++;
-		}
-			var answer = req.body.rasint3;
-			var goodAnswer="";
-
-			for(var i=0;i<answer.length;i++){
-				if((answer[i]>='a' && answer[i]<='z') || (answer[i]>='A' && answer[i]<='Z')){
-					goodAnswer = goodAnswer+answer[i];
-				}
+			if(req.body.int1v1=="on"){
+				punctaj++;
 			}
-			goodAnswer=goodAnswer.toLowerCase();
-
-		if(goodAnswer==obj[2].corect){
-			punctaj++;
-		}
-		if(req.body.int4A=="on"){
-			punctaj++;
-		}
-		if(req.body.int5v4=="on"){
-			punctaj++;
-		}
-		if(req.body.int6v1=="on"){
-			punctaj++;
-		}
-		if(req.body.int7v3=="on"){
-			punctaj++;
-		}
-		if(req.body.int8A=="on"){
-			punctaj++;
-		}
-		if(req.body.int9A=="on"){
-			punctaj++;
-		}
-		if(req.body.int10F=="on"){
-			punctaj++;
-		}
-		});
+			if(req.body.int2v2=="on"){
+				punctaj++;
+			}
+				var answer = req.body.rasint3;
+				var goodAnswer="";
 	
-
-	res.redirect('/rezultat_chestionar')
+				for(var i=0;i<answer.length;i++){
+					if((answer[i]>='a' && answer[i]<='z') || (answer[i]>='A' && answer[i]<='Z')){
+						goodAnswer = goodAnswer+answer[i];
+					}
+				}
+				goodAnswer=goodAnswer.toLowerCase();
+	
+			if(goodAnswer==obj[2].corect){
+				punctaj++;
+			}
+			if(req.body.int4A=="on"){
+				punctaj++;
+			}
+			if(req.body.int5v4=="on"){
+				punctaj++;
+			}
+			if(req.body.int6v1=="on"){
+				punctaj++;
+			}
+			if(req.body.int7v3=="on"){
+				punctaj++;
+			}
+			if(req.body.int8A=="on"){
+				punctaj++;
+			}
+			if(req.body.int9A=="on"){
+				punctaj++;
+			}
+			if(req.body.int10F=="on"){
+				punctaj++;
+			}
+			res.cookie('punctaj', punctaj);
+	});
+		res.redirect('/rezultat_chestionar');
 });
 
 app.get('/creare-bd', (req, res) =>{
