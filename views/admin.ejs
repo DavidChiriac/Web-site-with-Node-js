@@ -1,0 +1,9 @@
+<% if(utilizator=="admin"){ %>
+    <form action="/adaugare-produs" method="POST">
+        <label>Id produs</label>
+        <input type="number" name="idProdus"><br>
+        <label>Nume produs</label>
+        <input type="text" name="numeProdus"><br>
+        <button type="submit">Adauga produs</button>
+    </form>
+<% } %>
