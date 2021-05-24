@@ -162,42 +162,40 @@ app.post('/rezultat_chestionar', (req, res) => {
 	res.redirect('/rezultat_chestionar')
 });
 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-	host: "localhost",
-	user: "root",
-  	password: "",
-});
-
-con.connect(function(err) {
-  	if (err) throw err;
-  	console.log("Connected!");
-});
-
 app.get('/creare-bd', (req, res) =>{
-	let mysql="CREATE DATABASE cumparaturi";
-	con.query(mysql,(err) =>{
-		if(err){
-			throw err;
-		}
-		res.send("Database created");
+	
+	var mysql = require('mysql');
+
+	var con = mysql.createConnection({
+		host: "localhost",
+		user: "root",
+		password: "",
 	});
-	mysql="CREATE TABLE produse ( nume VARCHAR(30), pret Int)";
-	con.query(mysql,(err)=>{
-		if(err){
-			throw err;
-		}
-		res.send("Table created");
+
+	con.connect(function(err) {
+		if (err) throw err;
+		console.log("Connected!");
 	});
-	res.redirect('/index');
+	try{
+		con.query("CREATE DATABASE cumparaturi", function (err, result) {});
+	  	res.redirect('/index');
+	} catch (error) {
+		res.send({ code:400, failed: "error occurred"});
+	  }
+	
+	let Produse = `create table produse(
+		nume varchar(255)not null
+	)`;
+	try{
+		con.query(Produse, function (err, result, fields) {});
+	} catch (error){
+		res.send({ code:400, failed: "error occurred"});
+	}
 });
 
 app.post('/inserare-bd', (req, res) =>{
 
 	res.redirect('/index');
 });
-
-
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
