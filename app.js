@@ -112,10 +112,10 @@ app.post('/rezultat_chestionar', (req, res) => {
 			if(req.body.int5v4=="on"&& req.body.int5v1!="on"&& req.body.int5v2!="on"&& req.body.int5v3!="on"){
 				punctaj++;
 			}
-			if(req.body.int6v1=="on"&& req.body.int6v2!="on"&& req.body.int6v3!="on"&& req.body.int6v4!="on"){
+			if(req.body.int6v1!="on"&& req.body.int6v2!="on"&& req.body.int6v3=="on"&& req.body.int6v4!="on"){
 				punctaj++;
 			}
-			if(req.body.int7v3=="on"&& req.body.int7v1!="on"&& req.body.int7v2!="on"&& req.body.int7v4!="on"){
+			if(req.body.int7v1=="on"&& req.body.int7v2!="on"&& req.body.int7v3!="on"&& req.body.int7v4!="on"){
 				punctaj++;
 			}
 			if(req.body.int8A=="on"&& req.body.int8F!="on"){
@@ -124,7 +124,7 @@ app.post('/rezultat_chestionar', (req, res) => {
 			if(req.body.int9A!="on"&& req.body.int9F=="on"){
 				punctaj++;
 			}
-			if(req.body.int10F=="on"&& req.body.int10A!="on"){
+			if(req.body.int10A=="on"&& req.body.int10F!="on"){
 				punctaj++;
 			}
 			res.render('rezultat_chestionar', {intrebari:obj, punctaj:punctaj});
