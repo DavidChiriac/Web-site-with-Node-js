@@ -10,7 +10,7 @@
         "corect": 1
     },
     {
-        "intrebare": "Întrebarea 3",
+        "intrebare": "Cum se numește soluția care se aplică pe piele după ce a fost ras părul?",
         "corect": "aftershave"
     },
     {
@@ -18,18 +18,18 @@
         "corect": 0
     },
     {
-        "intrebare": "Întrebarea 5",
-        "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
+        "intrebare": "Care dintre următoarele promovează creșterea bacteriilor în machiaj?",
+        "variante": ["împărtășind machiajul cu prietenii", "expunând machiajul la lumină sau căldură", "folosirea machiajului atunci când aveți o infecție a ochilor", "toate cele de mai sus"],
         "corect": 0
     },
     {
-        "intrebare": "Întrebarea 6",
-        "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
-        "corect": 0
+        "intrebare": "Care dintre următoarele este cea mai frecventă leziune cauzată de produsele cosmetice?",
+        "variante": ["reacție alergică la fond de ten", "unghiile deteriorate cu vârfuri acrilice", "zgâriind ochiul cu o baghetă de rimel", "toate de mai sus"],
+        "corect": 2
     },
     {
-        "intrebare": "Întrebarea 7",
-        "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
+        "intrebare": "Ce produs este utilizat împreună cu periuța de dinți și pasta de dinți pentru a menține dinții sănătoși?",
+        "variante": ["Ață dentară", "colonie", "deodorant", "toate de mai sus"],
         "corect": 0
     },
     {
@@ -41,7 +41,7 @@
         "corect": 1
     },
     {
-        "intrebare": "Întrebarea 10",
+        "intrebare": "Unele rujuri fabricate în SUA conțin plumb.",
         "corect": 0
     }
 ]
