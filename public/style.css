@@ -3,8 +3,9 @@ body {
 }
 
 .bun-venit{
-    margin-left: 15%;
-    margin-right: 20%;
+  position: absolute;
+  left: 50%;
+  transform: translate( -50% );
 }
 
 .corect {
@@ -12,3 +13,57 @@ body {
     height: fit-content;
     background-color: greenyellow;
 }
+
+.homebuttons{
+    
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate( -50%, -60% );
+}
+
+.salut {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+button:hover{
+    background-color: pink;
+}
+
+.autentificare{
+    
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate( -50%, -50% );
+}
+
+.butonaut{
+    
+  position: absolute;
+  left: 50%;
+  transform: translate( -50% );
+}
+
+.autentificare{
+    font-size:xx-large;
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 12px; 
+
+    box-sizing: border-box;
+  }

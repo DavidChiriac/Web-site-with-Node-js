@@ -1,17 +1,20 @@
 
 <img class="bun-venit" src="bineativenit.gif">
 
+<div class="homebuttons">
+
 <% if(!utilizator){ %>
-    <form class="homebuttons" action="/autentificare" method="GET"> <button type="submit">Autentificare</button> </form>
+    <form action="/autentificare" method="GET"> <button type="submit">Autentificare</button> </form>
 <% } else{ %>
-    <p class="salut"> Bine ai venit, <%=utilizator%> !</p>
-    <form class="homebuttons" action="/chestionar" method="GET"> <button type="submit">Acceseaza chestionar</button> </form>
-    <form class="homebuttons" action="/log-out" method="POST"> <button type="submit">Log out</button></form>
+    <form action="/log-out" method="POST"> <a class="salut"> Bine ai venit, <%=utilizator%> !</a> <button type="submit">Log out</button></form>
+    <form action="/chestionar" method="GET"> <button type="submit">Acceseaza chestionar</button> </form>
 <% } %>
-<form class="homebuttons" action="/creare-bd" method="GET"><button type="submit">Creare BD</button></form>
-<form class="homebuttons" action="/inserare-bd" method="POST"><button type="submit">Incarcare BD</button></form>
+<form action="/creare-bd" method="GET"><button type="submit">Creare BD</button></form>
+<form action="/inserare-bd" method="POST"><button type="submit">Incarcare BD</button></form>
 <% if(utilizator=="admin"){ %>
-    <form class="homebuttons" action="/admin" method="GET">
+    <form action="/admin" method="GET">
         <button type="submit">Acceseaza admin</button>
     </form>
 <% } %>
+
+</div>

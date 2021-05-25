@@ -1,10 +1,10 @@
-<form action="/verificare-autentificare" method="POST">
+<form class="autentificare" action="/verificare-autentificare" method="POST">
     <label >Username:</label>
-    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="text" name="username" required><br><br>
     <label >Password:</label>
-    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="password" name="password" required><br>
     <% if(mesajEroare!=""){ %>
     <p><%=mesajEroare%></p>
     <% } %>
-    <input type="submit">
+    <button class="butonaut" type="submit">Autentificare</button>
 </form>

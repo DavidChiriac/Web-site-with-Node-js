@@ -1,10 +1,10 @@
 <% if(utilizator=="admin"){ %>
-    <form action="/adaugare-produs" method="POST">
+    <form class="autentificare" action="/adaugare-produs" method="POST">
         <label>Id produs</label>
-        <input type="number" name="idProdus"><br>
+        <input type="number" name="idProdus"><br><br>
         <label>Nume produs</label>
         <input type="text" name="numeProdus"><br>
-        <button type="submit">Adauga produs</button>
+        <button class="butonaut" type="submit">Adauga produs</button>
     </form>
 <% } else{ %>
     <h1>Trebuie sa fii logat ca admin</h1>
