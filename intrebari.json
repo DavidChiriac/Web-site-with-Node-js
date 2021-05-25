@@ -15,12 +15,12 @@
     },
     {
         "intrebare": "Este bine să dormi cu ochii machiați",
-        "corect": 0
+        "corect": 1
     },
     {
         "intrebare": "Care dintre următoarele promovează creșterea bacteriilor în machiaj?",
         "variante": ["împărtășind machiajul cu prietenii", "expunând machiajul la lumină sau căldură", "folosirea machiajului atunci când aveți o infecție a ochilor", "toate cele de mai sus"],
-        "corect": 0
+        "corect": 3
     },
     {
         "intrebare": "Care dintre următoarele este cea mai frecventă leziune cauzată de produsele cosmetice?",
