@@ -199,9 +199,15 @@ app.post('/adaugare-produs',(req,res)=>{
 		database: "cumparaturi"
 	});
 	try{
-		var produsNou="INSERT INTO produse (id, nume) VALUES ('"+req.body.idProdus+"', '"+req.body.numeProdus+"')"
- 		con.query(produsNou, function (err, result) {});
-		res.redirect('/admin');
+		if(req.body.idProdus=="" || req.body.numeProdus=="")
+		{
+			res.redirect('/index');
+		}
+		else{
+			var produsNou="INSERT INTO produse (id, nume) VALUES ('"+req.body.idProdus+"', '"+req.body.numeProdus+"')"
+ 			con.query(produsNou, function (err, result) {});
+			res.redirect('/index');
+		}
 	} catch{
 	}
 });
