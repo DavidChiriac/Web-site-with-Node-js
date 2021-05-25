@@ -2,6 +2,11 @@ body {
     background-color:aquamarine;
 }
 
+.bun-venit{
+    margin-left: 15%;
+    margin-right: 20%;
+}
+
 .corect {
     width: fit-content;
     height: fit-content;
