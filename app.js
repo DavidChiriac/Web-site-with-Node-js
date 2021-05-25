@@ -16,7 +16,6 @@ app.set('view engine', 'ejs');
 app.use(expressLayouts);
 // directorul 'public' va conține toate resursele accesibile direct de către client (e.g., fișiere css, javascript, imagini)
 app.use(express.static('public'));
-app.use('/css', express.static(__dirname + 'public/css'));
 // corpul mesajului poate fi interpretat ca json; datele de la formular se găsesc în format json în req.body
 app.use(bodyParser.json());
 // utilizarea unui algoritm de deep parsing care suportă obiecte în obiecte
