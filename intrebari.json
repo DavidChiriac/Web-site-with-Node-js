@@ -1,20 +1,20 @@
 [
     {
-        "intrebare": "Întrebarea 1",
-        "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
-        "corect": 0
+        "intrebare": "Care dintre următoarele poate atrage razele UV ale soarelui pe buzele tale?",
+        "variante": ["balsam de buze", "contur de buze", "ruj neted lucios", "ruj opac crem"],
+        "corect": 2
     },
     {
-        "intrebare": "Întrebarea 2",
-        "variante": ["varianta 1", "varianta 2", "varianta 3", "varianta 4"],
-        "corect": 0
+        "intrebare": "Potrivit unor experți, ce produs ar trebui să înlocuiți la fiecare trei luni?",
+        "variante": ["fard de ochi pudră", "rimel", "ruj", "pudra"],
+        "corect": 1
     },
     {
         "intrebare": "Întrebarea 3",
         "corect": "aftershave"
     },
     {
-        "intrebare": "Întrebarea 4",
+        "intrebare": "Este bine să dormi cu ochii machiați",
         "corect": 0
     },
     {
@@ -33,12 +33,12 @@
         "corect": 0
     },
     {
-        "intrebare": "Întrebarea 8",
+        "intrebare": "Oja vă poate păta unghiile.",
         "corect": 0
     },
     {
-        "intrebare": "Întrebarea 9",
-        "corect": 0
+        "intrebare": "Produsele cosmetice hipoalergenice nu provoacă reacții alergice",
+        "corect": 1
     },
     {
         "intrebare": "Întrebarea 10",
