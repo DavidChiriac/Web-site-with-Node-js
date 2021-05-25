@@ -127,7 +127,7 @@ app.post('/rezultat_chestionar', (req, res) => {
 			if(req.body.int10A=="on"&& req.body.int10F!="on"){
 				punctaj++;
 			}
-			res.render('rezultat_chestionar', {intrebari:obj, punctaj:punctaj});
+			res.render('rezultat_chestionar', {intrebari:obj, punctaj:punctaj, corecte:req.body});
 	});
 });
 
