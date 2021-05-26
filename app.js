@@ -10,6 +10,8 @@ app.use(cookieParser());
 
 const port = 6789;
 
+var http = require('http');
+
 // directorul 'views' va conține fișierele .ejs (html + js executat la server)
 app.set('view engine', 'ejs');
 // suport pentru layout-uri - implicit fișierul care reprezintă template-ul site-ului este views/layout.ejs
@@ -20,6 +22,8 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 // utilizarea unui algoritm de deep parsing care suportă obiecte în obiecte
 app.use(bodyParser.urlencoded({ extended: true }));
+
+var request_ip;
 // la accesarea din browser adresei http://localhost:6789/ se va returna textul 'Hello World'
 // proprietățile obiectului Request - req - https://expressjs.com/en/api.html#req
 // proprietățile obiectului Response - res - https://expressjs.com/en/api.html#res
@@ -229,8 +233,26 @@ app.use(function(req, res, next){
 	  return;
 	}
   
+	request_ip = req.ip 
+	|| req.connection.remoteAddress 
+	|| req.socket.remoteAddress 
+	|| req.connection.socket.remoteAddress;
+
 	// default to plain-text. send()
 	res.type('txt').send('Not found');
   });
+
+http.createServer(function (req, res) {
+
+if (request_ip == req.ip) // put the IP address here
+{
+	// make them wait a bit for a response (optional)
+	setTimeout(function() {
+		res.end();
+	}, 5000);
+
+}
+
+}).listen(80, '127.0.0.1');
 
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
