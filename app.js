@@ -214,4 +214,23 @@ app.post('/adaugare-produs',(req,res)=>{
 
 app.get('/admin', (req,res)=>res.render('admin', {utilizator:req.cookies.utilizator}));
 
+app.use(function(req, res, next){
+	res.status(404);
+  
+	// respond with html page
+	if (req.accepts('html')) {
+	  res.render('404', { url: req.url });
+	  return;
+	}
+  
+	// respond with json
+	if (req.accepts('json')) {
+	  res.send({ error: 'Not found' });
+	  return;
+	}
+  
+	// default to plain-text. send()
+	res.type('txt').send('Not found');
+  });
+
 app.listen(port, () => console.log(`Serverul rulează la adresa http://localhost:6789`));
