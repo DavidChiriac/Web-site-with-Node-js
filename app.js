@@ -46,7 +46,6 @@ app.get('/chestionar', (req, res) => {
 	  	res.render('chestionar', {intrebari: obj});
 	});
 	// în fișierul views/chestionar.ejs este accesibilă variabila 'intrebari' care conține vectorul de întrebări
-	
 });
 
 app.get('/autentificare', (req, res) => {
